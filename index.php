@@ -4,6 +4,8 @@
  * Everything is done here.
  *
  * @author Kryptos
+ * @author Heaplink
+ * @author Joopie
  */
 
 define('IN_INDEX', 1);
