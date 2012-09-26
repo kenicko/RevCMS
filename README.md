@@ -23,3 +23,7 @@ and fetch it to the upstream
 
 Released under GPLv2 or later
 
+## Contributors
+
+Joopie & Kryptos & Heaplink
+
