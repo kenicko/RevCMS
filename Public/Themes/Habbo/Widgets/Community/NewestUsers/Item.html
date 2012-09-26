@@ -1,0 +1,9 @@
+<div id="active-habbo-data-{$number}" class="active-habbo-data">
+                <div class="active-habbo-data-container">
+                    <div class="active-name online">{$random->username}</div>
+                    {$site->name} created on: {$random->account_created}
+                    <p class="moto">{$random->motto}</p>
+                </div>
+            </div>
+            <input type="hidden" id="active-habbo-url-{$number}" value="{$site->url}home/{$random->username}"/>
+            <input type="hidden" id="active-habbo-image-{$number}" class="active-habbo-image" value="{$site->url}Public/Themes/{$skin->name}/webbuild/habbo-imaging/figure.php?figure={$random->figure}&direction=4&head_direction=4"/>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
+
+<cross-domain-policy>
+<allow-access-from domain="*.habbomobile.co.uk"/>
+<allow-access-from domain="*.habbohotel.co.uk"/>
+<allow-access-from domain="*.habbo.co.uk"/>
+<allow-access-from domain="*.habbohotel.com"/>
+<allow-access-from domain="*.habbo.com"/>
+<allow-access-from domain="*.varoke.net"/> 
+<allow-access-from domain="*.hotel.varoke.net"/>
+<allow-access-from domain="*.web.varoke.net"/>
+<allow-access-from domain="*.sulake.com"/> 
+<allow-access-from domain="habbo.hs.llnwd.net"/>
+<allow-access-from domain="images-sulake.netdna-ssl.com"/>
+<allow-access-from domain="images-sulake.cotssl.net"/>
+</cross-domain-policy> 

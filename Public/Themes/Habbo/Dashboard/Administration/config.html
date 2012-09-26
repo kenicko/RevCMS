@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>{$site->name}: Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/Icecron/Dashboard/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/Icecron/Dashboard/css/stylesheet.css" />
+</head>
+<body>
+
+	{$widget->Dashboard->Header.html}
+
+	<div id="content" class="clearfix">
+		<div id="wrapper">
+			<div class="left sidebar">
+
+				{$widget->Dashboard->Administration->Sidebar.html}
+
+			</div>
+
+			<div class="right page">
+
+				<h1>Configuration</h1>
+				<p>Edit everything, in the commodity of the Dashboard.</p>
+
+				<form method="post" action="">
+
+					<header>
+						<h2>Access-Control-List</h2>
+					</header>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="config">Edit configuration</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->configuration" type="text" value="" id="configuration" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'configuration'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="administrator">Administrator</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->administrator" type="text" value="" id="administrator" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'administrator'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="moderator">Moderator</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->moderator" type="text" value="" id="moderator" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'moderator'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="ban">Banning</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->ban" type="text" value="" id="ban"  style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'ban');  return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="iplookup">IP-Lookup</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->iplookup" type="text" value="" id="iplookup"  style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'iplookup', $(this).val()); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="addbot">Add bot</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->addbot" type="text" value="" id="addbot"  style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'addbot'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="editbot">Edit bot</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->editbot" type="text" value="" id="editbot" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'editbot'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="badge">Give badge</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->badge" type="text" value="" id="badge" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'badge'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="user">Edit user</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->user" type="text" value="" id="user" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'user');return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="mus">Send MUS CMDs</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->mus" type="text" value="" id="mus" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'mus'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="roomaker">Room maker</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->roomaker" type="text" value="" id="roomaker" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'roomaker'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="vip">Give VIP</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->vip" type="text" value="" id="vip" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'vip'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="wordfilter">Wordfilter</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->wordfilter" type="text" value="" id="wordfilter" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'wordfilter'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="addnews">Post news</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->addnews" type="text" value="" id="addnews" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'addnews');return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="editnews">Edit news</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->editnews" type="text" value="" id="editnews" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'editnews'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="addcampaign">Add campaign</label>
+						</div>
+						<div class="middlecol">
+							<input name="acl->addcampaign" type="text" value="" id="addcampaign" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('acl', 'addcampaign'); return false;">
+						</div>
+					</div>
+
+					<header>
+						<h2>Site</h2>
+					</header>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="production">Production Environment</label>
+						</div>
+						<div class="middlecol">
+							<select name="site->production" style="width:100%;">
+								<option value="true">Production Mode</option>
+								<option value="true">True</option>
+								<option value="false">False</option>
+							</select>
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('site', 'production'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="maintenance">Maintenance</label>
+						</div>
+						<div class="middlecol">
+							<select name="site->maintenance" style="width:100%;">
+								<option value="false">Maintenance</option>
+								<option value="true">True</option>
+								<option value="false">False</option>
+							</select>
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('site', 'maintenance'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="url">Site URL</label>
+						</div>
+						<div class="middlecol">
+							<input name="site->url" type="text" value="" id="url" placeholder="URL" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('site', 'url'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="name">Site name</label>
+						</div>
+						<div class="middlecol">
+							<input name="site->name" type="text" value="" id="name" placeholder="Site name" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('site', 'name'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="title">Site title</label>
+						</div>
+						<div class="middlecol">
+							<input name="site->title" type="text" value="" id="title" placeholder="Title" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('site', 'title'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="language->name">Site language</label>
+						</div>
+						<div class="middlecol">
+							<input name="language->name" type="text" value="" id="language->name" placeholder="Language" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('language', 'name'); return false;">
+						</div>
+					</div>
+					
+					<div id="field">
+						<div class="leftcol">
+							<label for="mus->ip">MUS IP</label>
+						</div>
+						<div class="middlecol">
+							<input name="mus->ip" type="text" value="" id="mus->ip" placeholder="MUS IP" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('mus', 'ip'); return false;">
+						</div>
+					</div>
+					
+					<div id="field">
+						<div class="leftcol">
+							<label for="mus->port">MUS Port</label>
+						</div>
+						<div class="middlecol">
+							<input name="mus->port" type="text" value="" id="mus->port" placeholder="MUS Port" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('mus', 'port'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="server_ip">Server IP</label>
+						</div>
+						<div class="middlecol">
+							<input name="site->server_ip" type="text" value="" id="server_ip" placeholder="Server IP" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('site', 'server_ip'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="web_build">Web build</label>
+						</div>
+						<div class="middlecol">
+							<input name="site->web_build" type="text" value="" id="web_build" placeholder="WebBuild" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('site', 'web_build'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="external_vars">External vars</label>
+						</div>
+						<div class="middlecol">
+							<input name="site->external_vars" type="text" value="" id="external_vars" placeholder="External Vars" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('site', 'external_vars'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="external_texts">External texts</label>
+						</div>
+						<div class="middlecol">
+							<input name="site->external_texts" type="text" value="" id="external_texts" placeholder="External Texts" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('site', 'external_texts'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="product_data">Product Data</label>
+						</div>
+						<div class="middlecol">
+							<input name="site->product_data" type="text" value="" id="product_data" placeholder="Product Data" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('site', 'product_data'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="furni_data">Furni Data</label>
+						</div>
+						<div class="middlecol">
+							<input name="site->furni_data" type="text" value="" id="furni_data" placeholder="Furni Data" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('site', 'furni_data'); return false;">
+						</div>
+					</div>
+
+					<header>
+						<h2>Skin</h2>
+					</header>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="name">Skin name</label>
+						</div>
+						<div class="middlecol">
+							<select name="skin->name" style="width:100%;">
+								{$skins}
+							</select>
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('skin', 'name'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="driver">Template driver</label>
+						</div>
+						<div class="middlecol">
+							<input name="skin->driver" type="text" value="Rev" id="name" placeholder="Skin driver" style="width:100%;" disabled="disabled">
+						</div>
+						<div class="rightcol">
+							<input class="gray" name="submit" type="submit" id="submit" value="Disabled">
+						</div>
+					</div>
+
+					<header>
+						<h2>Default User Information</h2>
+					</header>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="motto">Motto</label>
+						</div>
+						<div class="middlecol">
+							<input name="user->motto" type="text" value="" id="motto" placeholder="Motto" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('user', 'motto'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="credits">Credits</label>
+						</div>
+						<div class="middlecol">
+							<input name="user->credits" type="text" value="" id="credits" placeholder="Credits" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('user', 'credits'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="pixels">Pixels</label>
+						</div>
+						<div class="middlecol">
+							<input name="user->pixels" type="text" value="" id="pixels" placeholder="Pixels" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('user', 'pixels'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="rank">Rank</label>
+						</div>
+						<div class="middlecol">
+							<input name="user->rank" type="text" value="" id="rank" placeholder="Rank" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('user', 'rank'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="figure">Figure</label>
+						</div>
+						<div class="middlecol">
+							<input name="user->figure" type="text" value="" id="figure" placeholder="Figure" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('user', 'figure'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="gender">Gender</label>
+						</div>
+						<div class="middlecol">
+							<input name="user->gender" type="text" value="" id="gender" placeholder="Gender" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('user', 'gender'); return false;">
+						</div>
+					</div>
+
+					<header>
+						<h2>Cron Jobs</h2>
+					</header>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="databasabackup">Database Backup - Execute every..</label>
+						</div>
+						<div class="middlecol">
+							<input name="cron->databasabackup->execute_every" type="text" value="" id="databasabackup" placeholder="Execute Every.." style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('cron->DatabaseBackup', 'execute_every'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="respects">Respects - Refresh every..</label>
+						</div>
+						<div class="middlecol">
+							<input name="cron->respects" type="text" value="" id="respects" placeholder="Refresh Every.." style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('cron->Respects', 'execute_every'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="webbuild">Web Build - Update every..</label>
+						</div>
+						<div class="middlecol">
+							<input name="cron->webbuild" type="text" value="" id="webbuild" placeholder="Update Every.." style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('cron->WebBuild', 'execute_every'); return false;">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<div id="wrapper">
+			<div class="seperator"></div>
+			<span class="version">Rev 3.0 Dashboard</span>
+			<span class="copyright">Copyright &copy; 2012 RevCMS 3.0 - All Rights Reserved.</span>
+			<span class="credits">Crafted by Heaplink</span>
+		</div>
+	</div>
+
+	<div id="modal" class="alert">
+		<header>
+			<h2 class="modal"></h2>
+		</header>
+		<section>
+			<p class="message"></p>
+		</section>
+		<footer>
+			<input class="gray" id="callback-cancel" type="submit" value="Dismiss">
+		</footer>
+	</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="{$site->url}Public/Themes/Icecron/Dashboard/js/Rev.js"></script>
+<script src="{$site->url}Public/Themes/Icecron/Dashboard/js/jquery.RevOwl.js"></script>
+<script>
+	$("#callback-cancel").click(function() {
+		$.unblockUI();
+		return false;
+	});
+</script>
+<script>
+	getConfig();
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>{$site->name}: Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/Icecron/Dashboard/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/Icecron/Dashboard/css/stylesheet.css" />
+</head>
+<body>
+
+	{$widget->Dashboard->Header.html}
+
+	<div id="content" class="clearfix">
+		<div id="wrapper">
+			<div class="left sidebar">
+
+				{$widget->Dashboard->Administration->Sidebar.html}
+				
+			</div>
+
+			<div class="right page">
+
+				<h1>VIP</h1>
+				<p>Give users VIP here!</p>
+
+				<form method="post" action="">
+					<header>
+						<h2VIP</h2>
+					</header>
+
+					<div id="field">
+						<div class="middlecol">
+							<input name="username" type="text" id="name" placeholder="Username" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<input class="big green" name="submit" id="submit" type="submit" value="Give VIP" onclick="vipUser(); return false;">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<div id="wrapper">
+			<div class="seperator"></div>
+			<span class="version">Rev 3.0 Dashboard</span>
+			<span class="copyright">Copyright &copy; 2012 RevCMS 3.0 - All Rights Reserved.</span>
+			<span class="credits">Crafted by Heaplink</span>
+		</div>
+	</div>
+
+	<div id="modal" class="alert">
+		<header>
+			<h2 class="modal"></h2>
+		</header>
+		<section>
+			<p class="message"></p>
+		</section>
+		<footer>
+			<input class="gray" id="callback-cancel" type="submit" value="Dismiss">
+		</footer>
+	</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="{$site->url}Public/Themes/Icecron/Dashboard/js/Rev.js"></script>
+<script src="{$site->url}Public/Themes/Icecron/Dashboard/js/jquery.RevOwl.js"></script>
+<script>
+	$("#callback-cancel").click(function() {
+		$.unblockUI();
+		return false;
+	});
+</script>
+</body>
+</html>

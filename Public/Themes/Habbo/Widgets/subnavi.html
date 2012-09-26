@@ -1,0 +1,29 @@
+<div id="subnavi" class="wide">
+    <div id="subnavi-search">
+        <div id="subnavi-search-upper">
+        <ul id="subnavi-search-links">
+                <li><a href="http://revhotel.uservoice.com" target="_blank">Submit an idea</a></li>
+                <li><a href="http://revhotel.uservoice.com" target="_blank">Report a bug</a></li>
+                <li><a href="mailto:help@prjrev.com" target="habbohelp" >Help</a></li>
+            <li>
+
+                    <span><a href="{$site->url}logout">Sign Out</a></span>
+
+            </li>
+        </ul>
+        </div>
+    </div>
+    <div id="to-hotel">
+        <a href="{$site->url}client" class="new-button green-button" target="607ff290a599c16566e06eeb0e992f1519a21e84" onclick="HabboClient.openOrFocus(this); return false;"><b>Enter {$site->name} Hotel</b><i></i></a>
+        {$Dashboard}
+    </div>
+</div> 
+
+<script type="text/javascript">
+L10N.put("purchase.group.title", "Create a Group");
+document.observe("dom:loaded", function() {
+    $("signout").observe("click", function() {
+        HabboClient.close();
+    });
+});
+</script>

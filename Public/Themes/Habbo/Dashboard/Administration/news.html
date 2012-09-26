@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>{$site->name}: Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/{$skin->name}/Dashboard/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/{$skin->name}/Dashboard/css/stylesheet.css" />
+	<script type="text/javascript" src="{$site->url}Public/Themes/{$skin->name}/Dashboard/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+
+	{$widget->Dashboard->Header.html}
+
+	<div id="content" class="clearfix">
+		<div id="wrapper">
+			<div class="left sidebar">
+
+				{$widget->Dashboard->Administration->Sidebar.html}
+
+			</div>
+
+			<div class="right page">
+
+				<h1>News</h1>
+				<p>This beautiful page is made to post news articles.</p>
+
+				<form method="post" id="postNews" action="">
+
+					<header>
+						<h2>Title</h2>
+					</header>
+
+					<div id="field">
+						<div class="middlecol">
+							<input name="title" type="text" id="title" placeholder="Title" style="width:100%;">
+						</div>
+					</div>
+					
+					<header>
+						<h2>Spoiler</h2>
+					</header>
+
+					<div id="field">
+						<div class="middlecol">
+							<input name="shortstory" type="text" id="shortstory" placeholder="Spoiler" style="width:100%;">
+						</div>
+					</div>
+					
+					<header>
+						<h2>Story</h2>
+					</header>
+					
+					<div id="field">
+						<div class="middlecol">
+							<textarea id="longstory" class="ckeditor" name="longstory">&lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ckeditor.com/"&gt;CKEditor&lt;/a&gt;.&lt;/p&gt;</textarea>
+							
+						</div>
+					</div>
+					
+					<header>
+						<h2>Choose the image</h2>
+					</header>
+					
+					<div id="field">
+						<div class="middlecol">
+							<center><img src='' alt='Topstory image'></center>
+						</div>
+					</div>
+								
+						
+					<div id="field">
+						<div class="middlecol">
+							<select id="topstory" name="image" style="width:100%;">
+								{$news->images}
+							</select>
+						</div>
+					</div>
+					
+					<div id="field">
+						<div class="rightcol">
+							<input class="big green" name="submit" id="submit" type="submit" value="Post news" onclick="$('#longstory').val(CKEDITOR.instances['longstory'].getData()); postNews(); return false;">
+						</div>
+					</div>
+
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<div id="wrapper">
+			<div class="seperator"></div>
+			<span class="version">Rev 3.0 Dashboard</span>
+			<span class="copyright">Copyright &copy; 2012 RevCMS 3.0 - All Rights Reserved.</span>
+			<span class="credits">Crafted by Heaplink</span>
+		</div>
+	</div>
+
+	<div id="modal" class="alert">
+		<header>
+			<h2 class="modal"></h2>
+		</header>
+		<section>
+			<p class="message"></p>
+		</section>
+		<footer>
+			<input class="gray" id="callback-cancel" type="submit" value="Dismiss">
+		</footer>
+	</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="{$site->url}Public/Themes/Habbo/Dashboard/js/Rev.js"></script>
+<script src="{$site->url}Public/Themes/Habbo/Dashboard/js/jquery.RevUpdater.js"></script>
+<script src="{$site->url}Public/Themes/Habbo/Dashboard/js/jquery.RevOwl.js"></script>
+<script>
+$(document).ready(function() {
+	$("#callback-cancel").click(function() {
+		$.unblockUI();
+		return false;
+	});
+	
+	$('img').attr('src', $("#topstory").val());
+	
+	$("#topstory").change(function(){
+    	$('img').attr('src', $("#topstory").val());
+    });
+	
+});
+</script>
+</body>
+</html>

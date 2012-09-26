@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>{$site->name}: Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/Icecron/Dashboard/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/Icecron/Dashboard/css/stylesheet.css" />
+</head>
+<body>
+
+	{$widget->Dashboard->Header.html}
+
+	<div id="content" class="clearfix">
+		<div id="wrapper">
+			<div class="left sidebar">
+
+				{$widget->Dashboard->Administration->Sidebar.html}
+
+			</div>
+
+			<div class="right page">
+
+				<h1>Add bot</h1>
+				<p>Add a bot to a certain room, totally configurable.</p>
+
+				<form method="post" action="">
+					<header>
+						<h2>Add bot</h2>
+					</header>
+
+				
+					<div id="field">
+						<div class="leftcol">
+							<label for="name">Name</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="name" id="name" value="" style="width: 95%" />
+						</div>
+					</div>
+				
+					<div id="field">
+						<div class="leftcol">
+							<label for="motto">Motto</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="motto" value="" style="width: 95%" />
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="room_id">Room ID</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="room_id" value="" style="width: 95%" />
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="ai_type">AI Type</label>
+						</div>
+						<div class="middlecol">
+							<select name="ai_type" style="width: 95%;">
+								<option>Select AI Type</option>
+								<option value="1">Generic</option>
+								<option value="2">Guide</option>
+								<option value="3">Pet</option>
+							</select>
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="look">Figure</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="look" value="" style="width: 95%" />
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="x">Coord X</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="x" value="" style="width: 95%" />
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="y">Coord Y</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="y" value="" style="width: 95%" />
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="rotation">Rotation</label>
+						</div>
+						<div class="middlecol">
+							<select name="rotation" style="width: 95%;">
+								<option>Select bot rotation</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="walk_mode">Walk mode</label>
+						</div>
+						<div class="middlecol">
+							<select name="walk_mode" style="width: 95%;">
+								<option>Select walking mode</option>
+								<option value="1">Standing</option>
+								<option value="2">Freeroam</option>
+							</select>
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="submit"></label>
+						</div>
+						<div class="middlecol" style="">
+							<input class="green" name="submit" type="submit" id="submit" value="Submit" onclick="addBot(); return false;">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<div id="wrapper">
+			<div class="seperator"></div>
+			<span class="version">Rev 3.0 Dashboard</span>
+			<span class="copyright">Copyright &copy; 2012 RevCMS 3.0 - All Rights Reserved.</span>
+			<span class="credits">Crafted by Heaplink</span>
+		</div>
+	</div>
+
+	<div id="modal" class="alert">
+		<header>
+			<h2 class="modal"></h2>
+		</header>
+		<section>
+			<p class="message"></p>
+		</section>
+		<footer>
+			<input class="gray" id="callback-cancel" type="submit" value="Dismiss">
+		</footer>
+	</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="{$site->url}Public/Themes/Icecron/Dashboard/js/Rev.js"></script>
+<script src="{$site->url}Public/Themes/Icecron/Dashboard/js/jquery.RevOwl.js"></script>
+<script>
+	$("#callback-cancel").click(function() {
+		$.unblockUI();
+		return false;
+	});
+</script>
+<script>
+$('#username').change(function() {
+		$('#name').val($(this).val());
+});
+</script>
+</body>
+</html>

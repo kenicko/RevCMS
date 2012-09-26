@@ -1,0 +1,120 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>{$site->name} Hotel - Banned </title>
+
+<script type="text/javascript">
+var andSoItBegins = (new Date()).getTime();
+</script>
+<link rel="shortcut icon" href="{$site->url}favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="stylesheet" href="{$site->url}Public/Themes/Habbo/webbuild/habboweb/web-gallery/static/styles/common.css" type="text/css" />
+<link rel="stylesheet" href="{$site->url}Public/Themes/Habbo/webbuild/habboweb/web-gallery/static/styles/process.css" type="text/css" />
+<script src="{$site->url}Public/Themes/Habbo/webbuild/habboweb/web-gallery/static/js/libs2.js" type="text/javascript"></script>
+<script src="{$site->url}Public/Themes/Habbo/webbuild/habboweb/web-gallery/static/js/visual.js" type="text/javascript"></script>
+<script src="{$site->url}Public/Themes/Habbo/webbuild/habboweb/web-gallery/static/js/libs.js" type="text/javascript"></script>
+<script src="{$site->url}Public/Themes/Habbo/webbuild/habboweb/web-gallery/static/js/common.js" type="text/javascript"></script>
+<script src="{$site->url}Public/Themes/Habbo/webbuild/habboweb/web-gallery/static/js/fullcontent.js" type="text/javascript"></script>
+<link rel="stylesheet" href="http://habbo.com/styles/local/com.css" type="text/css" />
+
+<script src="http://habbo.com/js/local/com.js" type="text/javascript"></script>
+
+<meta name="description" content="Check into the worldÕs largest virtual hotel for FREE! Meet and make friends, play games, chat with others, create your avatar, design rooms and moreÉ" />
+<meta name="keywords" content="{$site->name} hotel, virtual, world, social network, free, community, avatar, chat, online, teen, roleplaying, join, social, groups, forums, safe, play, games, online, friends, teens, rares, rare furni, collecting, create, collect, connect, furni, furniture, pets, room design, sharing, expression, badges, hangout, music, celebrity, celebrity visits, celebrities, mmo, mmorpg, massively multiplayer" />
+
+<!--[if IE 8]>
+<link rel="stylesheet" href="{$site->url}Public/Themes/Habbo/webbuild/habboweb/web-gallery/static/styles/ie8.css" type="text/css" />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel="stylesheet" href="{$site->url}Public/Themes/Habbo/webbuild/habboweb/web-gallery/static/styles/ie.css" type="text/css" />
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" href="{$site->url}Public/Themes/Habbo/webbuild/habboweb/web-gallery/static/styles/ie6.css" type="text/css" />
+<script src="{$site->url}Public/Themes/Habbo/webbuild/habboweb/web-gallery/static/js/pngfix.js" type="text/javascript"></script>
+<script type="text/javascript">
+try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {}
+</script>
+
+<style type="text/css">
+body { behavior: url(/js/csshover.htc); }
+</style>
+<![endif]-->
+<meta name="build" content="63-BUILD1621 - 13.09.2012 13:37 - com" />
+</head>
+<body id="logout" class="process-template">
+
+<div id="overlay"></div>
+
+<div id="container">
+	<div class="cbb process-template-box clearfix">
+		<div id="content" class="wide">
+					<div id="header" class="clearfix">
+						<h1><a href="{$site->url}"></a></h1>
+<ul class="stats">
+    <li class="stats-online"><span class="stats-fig">{$online}</span> users online now!</li>
+</ul>
+					</div>
+			<div id="process-content">
+	        	<div class="action-confirmation flash-message">
+	<div class="rounded">
+		You have been banned for {$ban->reason}
+	</div>
+</div>
+
+<div style="text-align: center">
+
+
+        <div style="width:100px; margin: 10px auto"><a href="#" id="logout-ok" class="new-button fill"><b>OK</b><i></i></a></div>
+
+
+
+<div id="column1" class="column">
+			     		
+				<div class="habblet-container ">		
+	
+						<div class="ad-container">
+						</div>
+
+						
+					
+				</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+			 
+
+</div>
+<div id="column2" class="column">
+</div>
+</div>
+
+<script type="text/javascript">
+document.observe("dom:loaded", function() {
+
+    if (!!$("logout-ok")) {
+	    Event.observe('logout-ok', 'click', function(e) {
+		    Event.stop(e);
+			    document.location.href='{$site->url}';
+	    });
+    }
+
+    if (!!$("facebook-wall-logout-ok")) {
+        Event.observe('facebook-wall-logout-ok', 'click', function(e) {
+            Event.stop(e);
+            top.location.href = 'http://www.facebook.com/{$social->facebook}';
+        });
+    }
+
+    Cookie.erase("habboclient");
+    Cookie.erase("friendlist");
+
+    HabboView.run();
+});
+</script>
+    <script type="text/javascript" src="http://uservoice.com/logout.json"></script>
+<div id="footer">
+	{$widget->Global->Footer.html}
+</div>    
+
+</body>
+</html>

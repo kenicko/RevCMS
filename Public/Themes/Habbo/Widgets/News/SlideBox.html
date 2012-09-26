@@ -1,0 +1,15 @@
+<div id="promo-box">
+
+    <div id="promo-bullets"></div>
+        
+        {$widget->News}    
+
+</div>
+    <script type="text/javascript">
+        document.observe("dom:loaded", function() { PromoSlideShow.init(); });
+    </script>
+    <script type="text/javascript">
+		var divs = document.getElementById('news');
+
+		divs.style.display = '';
+	</script>

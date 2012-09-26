@@ -1,0 +1,53 @@
+{$error->register->2}
+
+<form method="post" action="" id="quickregister-form">
+
+    <h2>Account details</h2>
+
+    <div id="inner-container">
+        <div class="inner-content bottom-border">
+            <div class="field">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="rusername" value="" />
+            </div>
+            <div class="field">
+                <label for="email-address">Email</label>
+                <input type="text" id="email-address" name="remail" value="" />
+            </div>
+
+            <div class="help">You'll need to use this <b>email address to log in</b> to {$site->name} in the future. Please use a valid address.</div>
+
+            <div class="field">
+                <label for="email-address2">Re-enter Email</label>
+                <input type="text" id="email-address2" name="rre-email" value="" />
+            </div>
+
+            <div class="help">...just to be sure.</div>
+
+            <div id="password-field" class="field">
+                <label for="register-password">Password</label>
+               <input type="password" name="rpassword" id="register-password" maxlength="32" value="" />
+            </div>
+
+            <div class="help">Password must be at least <b>6 characters </b>long</b></div>
+        </div>
+
+        <div class="inner-content top-margin">
+    		<div class="field-content checkbox ">
+    		  <label>
+    		    <input type="checkbox" name="termsOfServiceSelection" id="terms" value="true" class="checkbox-field"/>
+    		    I accept the Terms Of Service
+    		  </label>
+    		</div>            
+        </div>
+    </div>
+
+    <div id="select">
+        <a id="back-link" href="/quickregister/start">Go Back</a>
+        <div class="button">
+            <a id="proceed" href="#" class="area" style="visibility: hidden;">Submit</a>
+            <input href="#" type="submit" name="reg1" value="Submit" class="area">
+            <span class="close"></span>
+        </div>
+    </div>
+</form>

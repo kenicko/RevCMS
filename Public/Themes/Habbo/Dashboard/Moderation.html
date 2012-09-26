@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>{$site->name}: Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/Icecron/Dashboard/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/Icecron/Dashboard/css/stylesheet.css" />
+</head>
+<body>
+
+	{$widget->Dashboard->Header.html}
+
+	<div id="content" class="clearfix">
+		<div id="wrapper">
+			<div class="left sidebar">
+
+				{$widget->Dashboard->Moderation->Sidebar.html}
+
+			</div>
+			<div class="right page">
+
+				<h1>Moderation</h1>
+				<p>As a moderator, you have the duty of maintain a safe and fun environment in the hotel. You may need these tool - use them whenever you need them, but don't abuse them.</p>
+
+				<p>Also - at all times you must comply with these rules.</p>
+
+				<ul>
+					<li>Follow the regular hotel rules</li>
+					<li>Repect all members</li>
+					<li>Try to be nice to everyone and have patience</li>
+					<li>Do not let friendships get in your way while on duty</li>
+					<li>Stay active on the major events of the hotel</li>
+					<li>Never cuss and <strong>try</strong> to stop people from doing so</li>
+				</ul>
+
+				<p>We expect you to follow these guidelines and good luck.</p>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<div id="wrapper">
+			<div class="seperator"></div>
+			<span class="version">Dashboard</span>
+			<span class="copyright">Copyright &copy; 2012 RevCMS 3.0 - All Rights Reserved.</span>
+			<span class="credits">Powered by RevCMS 3.0 - Crafted by Heaplink</span>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

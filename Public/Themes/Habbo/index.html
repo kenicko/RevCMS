@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>{$site->name} Hotel - Make friends, join the fun, get noticed! </title>
+
+    <script type="text/javascript">
+    var andSoItBegins = (new Date()).getTime();
+    </script>
+    <link rel="shortcut icon" href="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/v2/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="alternate" type="application/rss+xml" title="Habbo Hotel - RSS" href="http://www.habbo.com/articles/rss.xml" />
+
+
+    <link rel="stylesheet" href="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/styles/frontpage.css" type="text/css" />
+    <script src="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/js/libs2.js" type="text/javascript"></script>
+    <script src="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/js/landing.js" type="text/javascript"></script>
+
+
+    <link rel="stylesheet" href="/styles/local/com.css" type="text/css" />
+
+    <script src="/js/local/com.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+    var ad_keywords = "";
+    var ad_key_value = "";
+    </script>
+    <script type="text/javascript">
+    document.habboLoggedIn = false;
+    var habboName = null;
+    var habboId = null;
+    var habboReqPath = "";
+    var habboStaticFilePath = "{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery";
+    var habboImagerUrl = "{$site->url}Public/Themes/{$skin->name}/webbuild/habbo-imaging/";
+    var habboPartner = "";
+    var habboDefaultClientPopupUrl = "{$site->url}client";
+    window.name = "habboMain";
+    if (typeof HabboClient != "undefined") {
+        HabboClient.windowName = "client";
+        HabboClient.maximizeWindow = true;
+    }
+
+
+    </script>
+        <style>
+            body {
+                 background-color: #000000;
+                
+            }
+            #footer .footer-links   { color: #666666; }
+            #footer .footer-links a { color: #ffffff; }
+            #footer .copyright      { color: #666666; }
+            #footer #compact-tags-container span, #footer #compact-tags-container a { color: #333333; }
+        </style>
+
+    <meta name="description" content="Check into the world’s largest virtual hotel for FREE! Meet and make friends, play games, chat with others, create your avatar, design rooms and more…" />
+    <meta name="keywords" content="{$site->name} hotel, virtual, world, social network, free, community, avatar, chat, online, teen, roleplaying, join, social, groups, forums, safe, play, games, online, friends, teens, rares, rare furni, collecting, create, collect, connect, furni, furniture, pets, room design, sharing, expression, badges, hangout, music, celebrity, celebrity visits, celebrities, mmo, mmorpg, massively multiplayer" />
+
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" href="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/styles/ie8.css" type="text/css" />
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/styles/ie.css" type="text/css" />
+    <![endif]-->
+    <!--[if lt IE 7]>
+    <link rel="stylesheet" href="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/styles/ie6.css" type="text/css" />
+    <script src="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/js/pngfix.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {}
+    </script>
+
+    <style type="text/css">
+    body { behavior: url(/js/csshover.htc); }
+    </style>
+    <![endif]-->
+    <meta name="build" content="63-BUILD1484 - 11.07.2012 23:09 - com" />
+</head>
+<body id="frontpage">
+
+    <div id="overlay"></div>
+
+    {$widget->Login->Forgotten.html}
+
+    <div id="site-header">
+
+        {$widget->Login->Form.html}
+
+    </div>
+
+    <!-- Start frontpage main content -->
+    <div id="fp-container">
+        <div id="content">
+            <div id="column1" class="column">
+			   <div class="habblet-container ">		
+	                <div style="width: 890px; margin: 0 auto">
+                        <div id="tagline">{$site->name} Hotel... make friends, play games, and express yourself</div>
+                    </div>
+
+                    <div id="frontpage-image-container">
+                        <div id="join-now-button-container">
+                            <div id="join-now-button-wrapper">
+                                <div class="join-now-alternative">
+                                    <a href="{$site->url}quickregister/start" class="newusers" id="newusers" onclick="startRegistration(this); return false;"><b>New to {$site->name}?</b><span style="color: #8f8f8f;">Click here to</span></a>
+                                </div>
+                                <div class="join-now-button">
+                                    <a class="join-now-link" id="register-link" href="{$site->url}quickregister/start" onclick="startRegistration(this); return false;"> 
+                                        <span class="join-now-text-big">Join now</span>
+                                        <span class="join-now-text-small">for Free</span>
+                                    </a>
+                                    <span class="close"></span>
+                                </div>
+                                <div class="join-now-alternative">
+                                    <a class="fbicon" id="fbicon" href="#" onclick="assistedLogin(FB); return false;">
+                                    Play {$site->name} with Facebook
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            function startRegistration(elem) {
+                                targetUrl = elem.href;
+                                if (typeof targetUrl == "undefined") {
+                                    targetUrl = "{$site->url}quickregister/start";
+                                }
+                                window.location.href = targetUrl;
+                            }
+                        </script>
+                        <div id="people-inside">
+                            <b><span><span class="stats-fig">{$online}</span> players online now</span></b>
+                            <i></i>
+                        </div>
+
+                        <a href="{$site->url}quickregister/start" id="frontpage-image" style="background-image: url('//habbo.hs.llnwd.net/c_images/Frontpage_images/landing_generic_1203xx_1.png')" onclick="startRegistration(this); return false;"></a>
+
+                    </div>
+                </div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+            </div>
+            
+            <!--[if lt IE 7]>
+            <script type="text/javascript">
+            Pngfix.doPngImageFix();
+            </script>
+            <![endif]-->
+
+            {$widget->Login->Footer.html}
+
+        </div>
+    </div>
+    <!-- End frontpage main content -->
+
+
+    <script type="text/javascript">
+    if (typeof HabboView != "undefined") {
+    	HabboView.run();
+    }
+    </script>
+
+</body>
+</html>

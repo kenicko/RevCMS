@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>{$site->name}: Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/Icecron/Dashboard/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/Icecron/Dashboard/css/stylesheet.css" />
+</head>
+<body>
+
+	{$widget->Dashboard->Header.html}
+
+	<div id="content" class="clearfix">
+		<div id="wrapper">
+			<div class="left sidebar">
+
+				{$widget->Dashboard->Administration->Sidebar.html}
+
+			</div>
+
+			<div class="right page">
+
+				<h1>MUS</h1>
+				<p>Send MUS messages to the server from here!</p>
+
+				<form method="post" action="" id="quick">
+					<header>
+						<h2>Quick</h2>
+					</header>
+
+					<div id="field">
+						<div class="middlecol">
+							<select name="header" style="width:100%;">
+								<option>Header</option>
+								<option value="updategroup">Phoenix: updategroup [id]</option>
+								<option value="updatepixels">Phoenix: updatepixels [id]</option>
+								<option value="updatepoints">Phoenix: updatepoints [id]</option>
+								<option value="giveitem">Phoenix: giveitem [userid itemid pageid gift-message]</option>
+								<option value="updatevip">Phoenix: updatevip [id]</option>
+								<option value="updateusergroups">Phoenix: updateusersgroups [id]</option>
+								<option value="update_filter">Phoenix: update_filter</option>
+								<option value="updatecredits">Phoenix: updatecredits [id]</option>
+								<option value="reloadbans">Phoenix: reloadbans</option>
+								<option value="update_bots">Phoenix: update_bots</option>
+								<option value="signout">Phoenix: signout [id]</option>
+								<option value="alert">Phoenix: alert [id message]</option>
+								<option value="ha">Phoenix: ha [message]</option>
+								<option value="hal">Phoenix: hal [url message]</option>
+								<option value="updatelook">Phoenix: updatelook [id]</option>
+								<option value="updatemotto">Phoenix: updatemotto [id]</option>
+								<option value="sa">Phoenix: sa [message]</option>
+								<option value="roomalert">Phoenix: roomalert [id message]</option>
+							</select>
+						</div>
+						<div class="rightcol">
+							<span class="description">The [ ] help you write the Data</span>
+						</div>
+					</div>
+					<div id="field">
+						<div class="middlecol">
+							<input name="data" type="text" id="data" placeholder="Data" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<span class="description">Optional. Example: I'm a hotel alert!</span>
+						</div>
+					</div>
+					<div id="field">
+						<div class="middlecol">
+							<input class="big green" name="submit" id="submit" type="submit" value="Send" onclick="sendMUS('quick'); return false;">
+						</div>
+					</div>
+				</form>
+
+				<form method="post" action="" id="custom">
+					<header>
+						<h2>Custom</h2>
+					</header>
+
+					<div id="field">
+						<div class="middlecol">
+							<input name="header" type="text" id="head" placeholder="Header" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<span class="description">Example: updategroup</span>
+						</div>
+					</div>
+					<div id="field">
+						<div class="middlecol">
+							<input name="data" type="text" id="data" placeholder="Data" style="width:100%;">
+						</div>
+						<div class="rightcol">
+							<span class="description">Optional. Example (Group ID): 12</span>
+						</div>
+					</div>
+					<div id="field">
+						<div class="middlecol">
+							<input name="code" type="password" id="secForm" placeholder="Security code" style="width:69.25%;">
+						</div>
+					</div>
+					<div id="field">
+						<div class="middlecol">
+							<input class="big green" name="submit" id="submit" type="submit" value="Send" onclick="sendMUS('custom');">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<div id="wrapper">
+			<div class="seperator"></div>
+			<span class="version">Rev 3.0 Dashboard</span>
+			<span class="copyright">Copyright &copy; 2012 RevCMS 3.0 - All Rights Reserved.</span>
+			<span class="credits">Crafted by Heaplink</span>
+		</div>
+	</div>
+
+	<div id="modal" class="alert">
+		<header>
+			<h2 class="modal"></h2>
+		</header>
+		<section>
+			<p class="message"></p>
+		</section>
+		<footer>
+			<input class="gray" id="callback-cancel" type="submit" value="Dismiss">
+		</footer>
+	</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="{$site->url}Public/Themes/Icecron/Dashboard/js/Rev.js"></script>
+<script src="{$site->url}Public/Themes/Icecron/Dashboard/js/jquery.RevUpdater.js"></script>
+<script src="{$site->url}Public/Themes/Icecron/Dashboard/js/jquery.RevOwl.js"></script>
+<script>
+$('#secForm').hide();
+
+$("#custom :input[name='header']").keyup(function () {
+var value = $(this).val();
+    if($(this).val() === 'shutdown' || $(this).val() === 'exe') {
+        $('#secForm').show();
+    } else {
+        $('#secForm').hide(); 
+    }
+});
+</script>
+<script>
+	$("#callback-cancel").click(function() {
+		$.unblockUI();
+		return false;
+	});
+</script>
+</body>
+</html>

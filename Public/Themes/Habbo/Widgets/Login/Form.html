@@ -1,0 +1,129 @@
+<form id="loginformitem" action="" method="post">
+        {$error->login}
+        <div style="clear: both;"></div>
+
+        <div id="site-header-content">
+
+            <div id="habbo-logo"></div>
+
+            <div id="login-form">
+
+
+                <div id="login-form-email">
+                    <label for="login-username" class="login-text">Email</label>
+                    <input tabindex="3" type="text" class="login-field" name="lusername" id="login-username" value="{$post->lusername}" maxlength="48"/>
+
+                </div>
+
+                <div id="login-form-password">
+                    <label for="login-password" class="login-text">Password</label>
+                    <input tabindex="4" type="password" class="login-field" name="lpassword"
+                           id="login-password" maxlength="32"/>
+
+                    <div id="login-forgot-password">
+                        <a href="#" id="forgot-password"><span>Forgot your password?</span></a>
+                    </div>
+                </div>
+
+                <div id="login-form-submit">
+                    <input type="submit" value="Login" name="signin" class="login-top-button" id="login-submit-button"/>
+                    <a href="#" tabindex="5" id="login-submit-new-button"><span>Login</span></a>
+                </div>
+
+            </div>
+
+            <div id="rpx-login"><div>
+
+                
+            <div id="fb-root"></div>
+            <script type="text/javascript">
+                window.fbAsyncInit = function() {
+                    Cookie.erase("fbsr_160366287385577");
+                    FB.init({appId: '160366287385577', status: true, cookie: true, xfbml: true, oauth: true});
+                    $(document).fire("fbevents:scriptLoaded");
+
+                };
+                window.assistedLogin = function(FBobject, optresponse) {
+                    
+                    Cookie.erase("fbsr_160366287385577");
+                    FBobject.init({appId: '160366287385577', status: true, cookie: true, xfbml: true, oauth: true});
+
+                    permissions = 'user_birthday,email';
+                    defaultAction = function(response) {
+
+                        if (response.authResponse) {
+                            fbConnectUrl = "{$site->url}facebook";
+                            Cookie.erase("fbhb_val_160366287385577");
+                            Cookie.set("fbhb_val_160366287385577", response.authResponse.accessToken);
+                            Cookie.erase("fbhb_expr_160366287385577");
+                            Cookie.set("fbhb_expr_160366287385577", response.authResponse.expiresIn);
+                            window.location.replace(fbConnectUrl);
+                        }
+                    };
+
+                    if (typeof optresponse == 'undefined')
+                        FBobject.login(defaultAction, {scope:permissions});
+                    else
+                        FBobject.login(optresponse, {scope:permissions});
+
+                };
+
+                (function() {
+                    var e = document.createElement('script');
+                    e.async = true;
+                    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+                    document.getElementById('fb-root').appendChild(e);
+                }());
+            </script>
+
+            <a class="fb_button fb_button_large" onclick="assistedLogin(FB); return false;">
+                <span class="fb_button_text">Login with Facebook</span>
+            </a>
+                            </div>
+
+
+                        </div>
+
+<noscript>
+<div id="alert-javascript-container">
+    <div id="alert-javascript-title">
+        Missing JavaScript support
+    </div>
+    <div id="alert-javascript-text">
+        Javascript is disabled on your browser. Please enable JavaScript or upgrade to a Javascript-capable browser to use Habbo :)
+    </div>
+</div>
+</noscript>
+
+<div id="alert-cookies-container" style="display:none">
+    <div id="alert-cookies-title">
+        Missing cookie support
+    </div>
+    <div id="alert-cookies-text">
+        Cookies are disabled on your browser. Please enable cookies to use Habbo.
+    </div>
+</div>
+<script type="text/javascript">
+    document.cookie = "habbotestcookie=supported";
+    var cookiesEnabled = document.cookie.indexOf("habbotestcookie") != -1;
+    if (cookiesEnabled) {
+        var date = new Date();
+        date.setTime(date.getTime()-24*60*60*1000);
+        document.cookie="habbotestcookie=supported; expires="+date.toGMTString();
+    } else {
+        $('alert-cookies-container').show();
+    }
+</script>
+
+            <script type="text/javascript">
+                HabboView.add(function() {
+                    LandingPage.init();
+                    if (!LandingPage.focusForced) {
+                        LandingPage.fieldFocus('login-username');
+                    }
+                });
+            </script>
+
+        </div>
+
+    </form>

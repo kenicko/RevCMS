@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>{$site->name}: Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/Icecron/Dashboard/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/Icecron/Dashboard/css/stylesheet.css" />
+</head>
+<body>
+
+	{$widget->Dashboard->Header.html}
+
+	<div id="content" class="clearfix">
+		<div id="wrapper"> 
+			<div class="left sidebar">
+
+				{$widget->Dashboard->Administration->Sidebar.html}
+
+			</div>
+
+			<div class="right page">
+
+				<h1>User edit</h1>
+				<p>Find out information about a user, but be warned - do not abuse it.</p>
+
+				<form method="post" action=""> 
+					<header>
+						<h2>Search for user</h2>
+					</header>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="username">Username</label>
+						</div>
+						<div class="middlecol">
+							<input name="username" type="text" id="username" style="width:95%;">
+						</div>
+						<div class="rightcol">
+							<input class="blue" name="submit" id="submit" type="submit" value="Update" onclick='getUser(); return false;'>
+						</div>
+					</div>
+					
+					<header>
+						<h2>Results</h2>
+					</header>
+				
+					<div id="field">
+						<div class="leftcol">
+							<label for="mail">Email Address</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="mail" value="" style="width: 95%" />
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" id="submit" type="submit" value="Update" onclick="updateUser('mail'); return false;">
+						</div>
+					</div>
+				
+					<div id="field">
+						<div class="leftcol">
+							<label for="motto">Motto</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="motto" value="" style="width: 95%" />
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" id="submit" type="submit" value="Update" onclick="updateUser('motto'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="look">Figure</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="look" value="" style="width: 95%" />
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" id="submit" type="submit" value="Update" onclick="updateUser('look'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="rank">Rank</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="rank" value="" style="width: 95%" />
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" id="submit" type="submit" value="Update" onclick="updateUser('rank');  return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="credits">Credits</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="credits" value="" style="width: 95%" />
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" id="submit" type="submit" value="Update" onclick="updateUser('credits'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="activity_points">Pixels</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="activity_points" value="" style="width: 95%" />
+						</div>
+						<div class="rightcol">
+							<input class="green" name="submit" id="submit" type="submit" value="Update" onclick="updateUser('activity_points'); return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="ip_reg">Registration IP</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="ip_reg" value="" style="width: 95%" />
+						</div>
+						<div class="rightcol">
+							<input class="gray" name="submit" id="submit" type="submit" value="Cannot update" onclick="return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="ip_last">Last IP</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="ip_last" value="" style="width: 95%" />
+						</div>
+						<div class="rightcol">
+							<input class="gray" name="submit" id="submit" type="submit" value="Cannot update" onclick="return false;">
+						</div>
+					</div>
+				
+					<div id="field">
+						<div class="leftcol">
+							<label for="account_created">Account created</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="account_created" value="" style="width: 95%" />
+						</div>
+						<div class="rightcol">
+							<input class="gray" name="submit" id="submit" type="submit" value="Cannot update" onclick="return false;">
+						</div>
+					</div>
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="last_online">Last online</label>
+						</div>
+						<div class="middlecol">
+							<input type="text" name="last_online" value="" style="width: 95%" />
+						</div>
+						<div class="rightcol">
+							<input class="gray" name="submit" id="submit" type="submit" value="Cannot update" onclick="return false;">
+						</div>
+					</div>
+				</form>
+
+				<header>
+					<h2>Quick ban</h2>
+				</header>
+
+				<form method="post" action="">
+
+					<div id="field">
+						<div class="leftcol">
+							<label for="username">Username</label>
+						</div>
+						<div class="middlecol">
+							<input name="username" type="text" id="name" style="width:100%;">
+						</div>
+					</div>
+					<div id="field">
+						<div class="leftcol">
+							<label for="bantype">Ban type</label>
+						</div>
+						<div class="middlecol">
+							<select name="bantype">
+								<option value="0">Select Ban Type</option>
+								<option value="user">User</option>
+								<option value="ip">IP</option>
+							</select>
+						</div>
+					</div>
+					<div id="field">
+						<div class="leftcol">
+							<label for="reason">Reason</label>
+						</div>
+						<div class="middlecol">
+							<input name="reason" type="text" id="reason" placeholder="Reason for ban" style="width:100%;">
+						</div>
+					</div>
+					<div id="field">
+						<div class="leftcol">
+							<label for="expire">Ban time</label>
+						</div>
+						<div class="middlecol">
+							<select name="expire">
+								<option value="1800">30 Minutes</option>
+								<option value="3600">1 Hour</option>
+								<option value="10800">3 Hours</option>
+								<option value="43200">12 Hours</option>
+								<option value="86400">1 Day</option>
+								<option value="259200">3 Day</option>
+								<option value="604800">1 Week</option>
+								<option value="1209600">2 Week</option>
+								<option value="2592000">1 Month</option>
+								<option value="7776000">3 Months</option>
+								<option value="31104000">1 Year</option>
+								<option value="62208000">2 Years</option>
+								<option value="360000000">Permanent</option>
+							</select>
+						</div>
+					</div>
+					<div id="field">
+						<div style="float:right;">
+							<input class="green" name="submit" type="submit" id="submit" value="Submit" onclick="banUser(); return false;">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<div id="wrapper">
+			<div class="seperator"></div>
+			<span class="version">Rev 3.0 Dashboard</span>
+			<span class="copyright">Copyright &copy; 2012 RevCMS 3.0 - All Rights Reserved.</span>
+			<span class="credits">Crafted by Heaplink</span>
+		</div>
+	</div>
+
+	<div id="modal" class="alert">
+		<header>
+			<h2 class="modal"></h2>
+		</header>
+		<section>
+			<p class="message"></p>
+		</section>
+		<footer>
+			<input class="gray" id="callback-cancel" type="submit" value="Dismiss">
+		</footer>
+	</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="{$site->url}Public/Themes/Icecron/Dashboard/js/Rev.js"></script>
+<script src="{$site->url}Public/Themes/Icecron/Dashboard/js/jquery.RevOwl.js"></script>
+<script type="text/javascript" src="{$site->url}Public/Themes/Icecron/Dashboard/js/jquery.RevUpdater.js"></script>
+<script>
+	$("#callback-cancel").click(function() {
+		$.unblockUI();
+		return false;
+	});
+</script>
+<script>
+$('#username').change(function() {
+		$('#name').val($(this).val());
+});
+</script>
+
+</body>
+</html>

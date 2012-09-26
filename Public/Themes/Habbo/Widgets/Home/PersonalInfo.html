@@ -1,0 +1,27 @@
+            <div id="wide-personal-info">
+
+                <div id="habbo-plate">
+                    <a href="{$site->url}identity/avatars">
+                    <img src="{$site->url}Public/Themes/{$skin->name}/webbuild/habbo-imaging/figure.php?figure={$user->figure}&position=3"/></a>
+                </div>
+
+                <div id="name-box" class="info-box">
+                    <div class="label">Name:</div>
+                    <div class="content">{$user->username}</div>
+                </div>
+                <div id="motto-box" class="info-box">
+                    <div class="label">Motto:</div>
+                    <div class="content">{$user->motto}</div>
+                </div>
+                <div id="last-logged-in-box" class="info-box">
+                    <div class="label">Last signed in:</div>
+                    <div class="content">{$user->last_online}</div>
+                </div>
+
+                <div class="enter-hotel-btn">
+                    <div class="open enter-btn">
+                            <a href="{$site->url}client" target="da42af6bcb09aeda5d8ccc8fc7c0653a4a62ed72" onclick="HabboClient.openOrFocus(this); return false;">Enter {$site->name} Hotel<i></i></a>
+                        <b></b>
+                    </div>
+                </div>
+            </div>

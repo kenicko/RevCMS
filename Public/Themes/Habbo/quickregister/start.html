@@ -1,0 +1,99 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>{$site->name} Hotel - Register</title>
+
+    <script type="text/javascript">
+    var andSoItBegins = (new Date()).getTime();
+    </script>
+    <link rel="shortcut icon" href="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/v2/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="alternate" type="application/rss+xml" title="Habbo Hotel - RSS" href="http://www.habbo.com/articles/rss.xml" />
+    <meta name="csrf-token" content="6afe3c90b5"/>
+    <link rel="stylesheet" href="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/styles/common.css" type="text/css" />
+    <script src="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/js/libs2.js" type="text/javascript"></script>
+    <script src="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/js/visual.js" type="text/javascript"></script>
+    <script src="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/js/libs.js" type="text/javascript"></script>
+    <script src="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/js/common.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+    document.habboLoggedIn = false;
+    var habboName = null;
+    var habboId = null;
+    var habboReqPath = "";
+    var habboStaticFilePath = "{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery";
+    var habboImagerUrl = "{$site->url}Public/Themes/{$skin->name}/webbuild/habbo-imaging/";
+    var habboPartner = "";
+    var habboDefaultClientPopupUrl = "{$site->url}client";
+    window.name = "214baf4ad644eea7108cdbf9cba74ad02e5cdcf3";
+    if (typeof HabboClient != "undefined") {
+        HabboClient.windowName = "214baf4ad644eea7108cdbf9cba74ad02e5cdcf3";
+        HabboClient.maximizeWindow = true;
+    }
+
+
+    </script>
+
+    <link rel="stylesheet" href="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/styles/quickregister.css" type="text/css" />
+    <script src="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/js/quickregister.js" type="text/javascript"></script>
+
+    <meta name="description" content="Check into the world’s largest virtual hotel for FREE! Meet and make friends, play games, chat with others, create your avatar, design rooms and more…" />
+    <meta name="keywords" content="{$site->name} hotel, virtual, world, social network, free, community, avatar, chat, online, teen, roleplaying, join, social, groups, forums, safe, play, games, online, friends, teens, rares, rare furni, collecting, create, collect, connect, furni, furniture, pets, room design, sharing, expression, badges, hangout, music, celebrity, celebrity visits, celebrities, mmo, mmorpg, massively multiplayer" />
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" href="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/styles/ie8.css" type="text/css" />
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/styles/ie.css" type="text/css" />
+    <![endif]-->
+    <!--[if lt IE 7]>
+    <link rel="stylesheet" href="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/styles/ie6.css" type="text/css" />
+    <script src="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/static/js/pngfix.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {}
+    </script>
+
+    <style type="text/css">
+    body { behavior: url(/js/csshover.htc); }
+    </style>
+    <![endif]-->
+
+    <meta name="build" content="63-BUILD1484 - 11.07.2012 23:09 - com" />
+    
+</head>
+<body id="client" class="background-agegate">
+
+    <div id="overlay"></div>
+
+    <img src="{$site->url}Public/Themes/{$skin->name}/webbuild/habboweb/web-gallery/v2/images/page_loader.gif" style="position:absolute; margin: -1500px;" />
+
+    {$widget->Login->Forgotten.html}
+
+    <div id="stepnumbers">
+        <div class="step1focus">Birthdate &amp; Gender</div>
+        <div class="step2">Account details</div>
+        <div class="stephabbo"></div>
+    </div>
+
+    <!-- Start QuickRegister/Start Main Content -->
+    <div id="main-container">
+        {$widget->Register->Start.html}
+    </div>
+    <!-- End QuickRegister/Start Main Content -->
+
+    <script type="text/javascript">
+        L10N.put("identity.register.overlay.loading.text", 'Loading...');
+        document.observe("dom:loaded", function() {
+            QuickRegister.initAgeGate(true);
+            QuickRegister.initGenderChooser("male");
+        });
+    </script>
+
+    <script type="text/javascript">
+        HabboView.run();
+    </script>
+
+</body>
+</html>

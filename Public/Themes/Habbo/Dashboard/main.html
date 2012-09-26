@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>{$site->name}: Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/Icecron/Dashboard/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="{$site->url}Public/Themes/Icecron/Dashboard/css/stylesheet.css" />
+
+</head>
+<body>
+
+	{$widget->Dashboard->Header.html}
+
+	<div id="content" class="clearfix">
+		<div id="wrapper">
+			<div class="left">
+
+				<div id="widget" class="news">
+					<div class="content">
+						<h2>We are watching you</h2>
+						<p>All your actions are being logged - you've been warned.</p>
+					</div>
+					<div class="details">
+						<span class="author">Administrators</span>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="right">
+
+				<div id="widget" class="stats">
+						<h2>Statistics - Coming soon</h2>
+						<div class="content">
+							<div id="statsBox" style="width: 100%; height: 300px; margin: 0 auto"></div>
+						</div>
+						<div class="bottom table">
+						<div class="row">
+							<div class="col">
+								<span class="count red">1,000</span>
+								<span class="description">Page Views</span>
+							</div>
+							<div class="col">
+								<span class="count blue">1,000</span>
+								<span class="description">Registered Users</span>
+							</div>
+							<div class="col">
+								<span class="count green">127</span>
+								<span class="description">Daily Users</span>
+							</div>
+							<div class="col last">
+								<span class="count purple">214</span>
+								<span class="description">Cloned Users</span>
+							</div>
+						</div>
+
+							<div class="clearfix"></div>
+						</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<div id="wrapper">
+			<div class="seperator"></div>
+			<span class="version">Dashboard</span>
+			<span class="copyright">Copyright &copy; 2012 RevCMS 3.0 - All Rights Reserved.</span>
+			<span class="credits">Powered by RevCMS 3.0 - Crafted by Heaplink</span>
+		</div>
+	</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="{$site->url}Public/Themes/Icecron/Dashboard/js/jquery.RevModular.js"></script>
+
+<script type="text/javascript" src="{$site->url}Public/Themes/Icecron/Dashboard/js/Highcharts/js/highcharts.js"></script>
+<script type="text/javascript" src="{$site->url}Public/Themes/Icecron/Dashboard/js/Highcharts/themes/gray.js"></script>
+<script type="text/javascript" src="{$site->url}Public/Themes/Icecron/Dashboard/js/Highcharts/js/modules/exporting.js"></script>
+
+<script type="text/javascript">
+
+	var chart;
+	$(document).ready(function() {
+
+		// define the options
+		var options = {
+
+			chart: {
+				renderTo: 'statsBox'
+			},
+
+			title: {
+				text: ''
+			},
+
+			credits: {
+				enabled: false
+			},
+
+			subtitle: {
+				text: ''
+			},
+
+			xAxis: {
+				type: 'datetime',
+				tickInterval: 7 * 24 * 3600 * 1000, // one week
+				tickWidth: 0,
+				gridLineWidth: 1,
+				labels: {
+					align: 'left',
+					x: 3,
+					y: -3
+				}
+			},
+
+			yAxis: [{ // left y axis
+				title: {
+					text: null
+				},
+				labels: {
+					align: 'left',
+					x: 3,
+					y: 16,
+					formatter: function() {
+						return Highcharts.numberFormat(this.value, 0);
+					}
+				},
+				showFirstLabel: false
+			}, { // right y axis
+				linkedTo: 0,
+				gridLineWidth: 0,
+				opposite: true,
+				title: {
+					text: null
+				},
+				labels: {
+					align: 'right',
+					x: -3,
+					y: 16,
+					formatter: function() {
+						return Highcharts.numberFormat(this.value, 0);
+					}
+				},
+				showFirstLabel: false
+			}],
+
+			legend: {
+				align: 'left',
+				verticalAlign: 'top',
+				y: 20,
+				floating: true,
+				borderWidth: 0
+			},
+
+			tooltip: {
+				shared: true,
+				backgroundColor:"rgba(255, 255, 255, .90)",
+				borderWidth:0,
+				borderRadius:3,
+				shadow:true,
+				style: {
+					color:"#333333",
+					fontSize:"11px",
+					padding:"5px",
+					whiteSpace:"nowrap"
+				},
+				crosshairs: true
+			},
+
+			plotOptions: {
+				series: {
+					cursor: 'pointer',
+					point: {
+						events: {
+							click: function() {
+								hs.htmlExpand(null, {
+									pageOrigin: {
+										x: this.pageX,
+										y: this.pageY
+									},
+									headingText: this.series.name,
+									maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) +':<br/> '+
+										this.y +' vists',
+									width: 200
+								});
+							}
+						}
+					},
+					marker: {
+						lineWidth: 1
+					}
+				}
+			},
+
+			series: [{
+				name: 'All visits',
+				lineWidth: 4,
+				marker: {
+					radius: 4
+				}
+			}, {
+				name: 'New visitors'
+			}]
+		};
+
+
+		// Load data asynchronously using jQuery. On success, add the data
+		// to the options and initiate the chart.
+		// This data is obtained by exporting a GA custom report to TSV.
+		// http://api.jquery.com/jQuery.get/
+		jQuery.get('analytics.tsv', null, function(tsv, state, xhr) {
+			var lines = [],
+				listen = false,
+				date,
+
+				// set up the two data series
+				allVisits = [],
+				newVisitors = [];
+
+			// inconsistency
+			if (typeof tsv !== 'string') {
+				tsv = xhr.responseText;
+			}
+
+			// split the data return into lines and parse them
+			tsv = tsv.split(/\n/g);
+			jQuery.each(tsv, function(i, line) {
+
+				// listen for data lines between the Graph and Table headers
+				if (tsv[i - 3] == '# Graph') {
+					listen = true;
+				} else if (line == '' || line.charAt(0) == '#') {
+					listen = false;
+				}
+
+				// all data lines start with a double quote
+				if (listen) {
+					line = line.split(/\t/);
+					date = Date.parse(line[0] +' UTC');
+
+					allVisits.push([
+						date,
+						parseInt(line[1].replace(',', ''), 10)
+					]);
+					newVisitors.push([
+						date,
+						parseInt(line[2].replace(',', ''), 10)
+					]);
+				}
+			});
+
+			options.series[0].data = allVisits;
+			options.series[1].data = newVisitors;
+
+			chart = new Highcharts.Chart(options);
+		});
+
+	});
+
+</script>
+
+</body>
+</html>

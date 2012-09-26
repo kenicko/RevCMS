@@ -1,0 +1,41 @@
+<div id="change-password-form" style="display: none;">
+    <div id="change-password-form-container" class="clearfix">
+        <div id="change-password-form-title" class="bottom-border">Forgot Password?</div>
+        <div id="change-password-form-content" style="display: none;">
+            <form method="post" action="{$site->url}Forgot" id="forgotten-pw-form">
+                <input type="hidden" name="page" value="/?changePwd=true" />
+                <span>Type in your {$site->name} account email address:</span>
+                <div id="email" class="center bottom-border">
+                    <input type="text" id="change-password-email-address" name="emailAddress" value="" class="email-address" maxlength="48"/>
+                    <div id="change-password-error-container" class="error" style="display: none;">{$error->forgotten}</div>
+                </div>
+            </form>
+            <div class="change-password-buttons">
+                <a href="#" id="change-password-cancel-link">Cancel</a>
+                <a href="#" id="change-password-submit-button" class="new-button"><b>Send Email</b><i></i></a>
+            </div>
+        </div>
+        <div id="change-password-email-sent-notice" style="display: none;">
+            <div class="bottom-border">
+                <span>Hey, we just sent you an email with a link that lets you reset your password.<br>
+<br>
+
+NOTE! Remember to check your "junk" folder too!</span>
+                <div id="email-sent-container"></div>
+            </div>
+            <div class="change-password-buttons">
+                <a href="#" id="change-password-change-link">Back</a>
+                <a href="#" id="change-password-success-button" class="new-button"><b>OK</b><i></i></a>
+            </div>
+        </div>
+    </div>
+    <div id="change-password-form-container-bottom"></div>
+</div>
+
+<script type="text/javascript">
+HabboView.add( function() {
+     ChangePassword.init();
+
+
+});
+</script>

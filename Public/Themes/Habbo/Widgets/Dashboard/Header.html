@@ -1,0 +1,17 @@
+<div id="header">
+		<div id="wrapper">
+			<div id="user">
+				<div class="welcome">Welcome, {$user->username}</div>
+				<div class="rank">RANK {$user->rank}</div>
+			</div>
+
+			{$widget->Dashboard->Navigation.html}
+
+			<div id="stats">
+				<div class="onlineusers">{$online} Users Online</div>
+				<div class="client"><a href="{$site->url}client">Go to the client</a></div>
+			</div>
+
+			<div class="clearfix"></div>
+		</div>
+	</div>
