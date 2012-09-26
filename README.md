@@ -1,4 +1,4 @@
-RevCMS
+[BETA] RevCMS 3.0.4
 ------
 
 An easy-to-use Content Management System for Habbo Hotel emulation environments.
