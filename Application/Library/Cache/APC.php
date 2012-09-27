@@ -33,7 +33,8 @@ class Library_Cache_APC
     
     public function set($key, $var, $timestamp = null)
     {
-        apc_add($key, $var, $this->Rev->load->Rev_Configure()->config->cache->apc->time);
+        $Rev = getInstance();
+        apc_add($key, $var, $Rev->load->Rev_Configure()->config->session->gc_maxlifetime);
     }
     
     public function delete($key)

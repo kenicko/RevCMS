@@ -508,42 +508,48 @@
 					</div>
 
 					<header>
-						<h2>Cron Jobs</h2>
+						<h2>Caching settings</h2>
 					</header>
 
 					<div id="field">
 						<div class="leftcol">
-							<label for="databasabackup">Database Backup - Execute every..</label>
+							<label for="session_type">Session Handling</label>
 						</div>
 						<div class="middlecol">
-							<input name="cron->databasabackup->execute_every" type="text" value="" id="databasabackup" placeholder="Execute Every.." style="width:100%;">
+							<select name="session->type" id="session_type" style="width:100%;">
+								<option value="Native">Type</option>
+								<option value="Native">Native</option>
+								<option value="APC">APC</option>
+								<option value="Memcache">Memcache</option>
+								<option value="File">File</option>
+							</select>
 						</div>
 						<div class="rightcol">
-							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('cron->DatabaseBackup', 'execute_every'); return false;">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('session', 'type'); return false;">
 						</div>
 					</div>
 
 					<div id="field">
 						<div class="leftcol">
-							<label for="respects">Respects - Refresh every..</label>
+							<label for="session_gc_maxlifetime">Session gc_maxlifetime</label>
 						</div>
 						<div class="middlecol">
-							<input name="cron->respects" type="text" value="" id="respects" placeholder="Refresh Every.." style="width:100%;">
+							<input name="sesion->gc_maxlifetime" type="text" value="" id="session_gc_maxlifetime" placeholder="GC Maxlifetime" style="width:100%;">
 						</div>
 						<div class="rightcol">
-							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('cron->Respects', 'execute_every'); return false;">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('session', 'gc_maxlifetime'); return false;">
 						</div>
 					</div>
 
 					<div id="field">
 						<div class="leftcol">
-							<label for="webbuild">Web Build - Update every..</label>
+							<label for="session_memcache">Session Memcache servers</label>
 						</div>
 						<div class="middlecol">
-							<input name="cron->webbuild" type="text" value="" id="webbuild" placeholder="Update Every.." style="width:100%;">
+							<input name="sesion->memcache" type="text" value="" id="session_memcache" placeholder="127.0.0.1:11211,127.0.0.2:11211" style="width:100%;">
 						</div>
 						<div class="rightcol">
-							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('cron->WebBuild', 'execute_every'); return false;">
+							<input class="green" name="submit" type="submit" id="submit" value="Update" onclick="editConfig('session', 'memcache'); return false;">
 						</div>
 					</div>
 				</form>

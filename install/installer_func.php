@@ -61,7 +61,7 @@ function Install($post)
 		$insert->acl = getACL();
 
 		//Get the cache shit
-		$insert->cache = getCache();
+		$insert->session = getSession();
 
 		//Get skin shit
 		$insert->skin->page = getPage();
@@ -103,25 +103,14 @@ function getACL()
 	return $acl;
 }
 
-function getCache()
+function getSession()
 {
-	$cache = new stdClass();
+	$session = new stdClass();
+	$session->type = 'Native';
+	$session->gc_maxlifetime = 86400;
+	$session->memcache = '127.0.0.1:11211';
 
-	$cache->file = new stdClass();
-	$cache->file->time = 86400;
-
-	$cache->memcache = new stdClass();
-	$cache->memcache->servers = '127.0.0.1:11211';
-
-	$cache->apc = new stdClass();
-	$cache->apc->time = 86400;
-
-	$cache->session = new stdClass();
-	$cache->session->type = 'Native';
-	$cache->session->gc_maxlifetime = 86400;
-
-
-	return $cache;
+	return $session;
 }
 
 function getPage()

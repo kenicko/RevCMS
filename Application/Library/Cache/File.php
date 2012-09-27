@@ -13,11 +13,14 @@
 class Library_Cache_File 
 {
 
-    public $hashing = true;
+    public $hashing = true, $expire, $dir;
 
     public function __construct() 
     {
+        $Rev = getInstance();
+
         $this->dir = CACHE;
+        $this->expire = $Rev->load->Rev_Configure()->config->session->gc_maxlifetime;
     }
 
     public function get($key) 
@@ -41,7 +44,7 @@ class Library_Cache_File
         return false;
     }
 
-    public function set($name, $value, $expire = 31536000) 
+    public function set($name, $value, $expire = $this->expire) 
     {
         $expire = time()+$expire;
         return file_put_contents($this->dir . md5($name), $expire.serialize($value), LOCK_EX);

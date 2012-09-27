@@ -24,37 +24,31 @@ class Library_Cache_Memcache
         
         $this->Memcache = new Memcache();
         
-        $this->connect($this->Rev->Rev_Configure()->config->cache->memcache);
+        $this->connect($this->Rev->Rev_Configure()->config->session->memcache);
     }
     
-    public function connect($obj)
+    public function connect($memcache)
     {
-        if($this->initiated != true)
+        if($this->connected != true)
         {
-            if(is_object($obj))
+            foreach(explode(',', $memcache) as $value)
             {
-                foreach($obj as $server)
-                {
-                    $server = explode(';', $server);
-                    foreach($server as $value)
-                    {
-                        $value = explode(':', $value);
-                        $this->Memcache->addServer($value[0], $value[1]);
-                    }
-                }
+                $explode = explode(':', $value);
+
+                $this->Memcache->addServer($explode[0], $explode[1]);
             }
             
-            $this->initiated = true;
+            $this->connected= true;
         }
     }
     
     public function disconnect()
     {
-        if($this->initiated == true)
+        if($this->connected == true)
         {
             $this->Memcache->close();
             
-            $this->initiated = false;
+            $this->connected= false;
         }
     }
     
