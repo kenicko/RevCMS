@@ -85,9 +85,8 @@ class Controller_Article extends Controller
                     $this->vView->driver->assign('title', $nvalue[$this->mModel->emu->news['title']], true);
                     $this->vView->driver->assign('id', $nvalue[$this->mModel->emu->news['id']], true);
 
+                    $this->vView->driver->assign('widget->news->list', $this->vView->driver->filterParams($this->vView->driver->getFile("Widgets/News/List")));
                 }
-
-                $this->vView->driver->assign('widget->news->list', $this->vView->driver->filterParams($this->vView->driver->getFile("Widgets/News/List")));
             }
         }
     }
