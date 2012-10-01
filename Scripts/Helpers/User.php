@@ -33,7 +33,7 @@ function ajaxRegister($user, $pass, $repass, $email)
 			{
 				if($Rev->load->Controller_Validate()->validEmail($email))
 				{
-					$Rev->load->Model_User()->add($user, md5(sha1($pass)), $email, $Rev->load->Rev_Configure()->config->user->motto, $Rev->load->Rev_Configure()->config->user->credits, $Rev->load->Rev_Configure()->config->user->pixels, $Rev->load->Rev_Configure()->config->user->rank, $Rev->load->Rev_Configure()->config->user->figure, $Rev->load->Rev_Configure()->config->user->gender);	
+					$Rev->load->Model_User()->insert($user, md5(sha1($pass)), $email, $Rev->load->Rev_Configure()->config->user->motto, $Rev->load->Rev_Configure()->config->user->credits, $Rev->load->Rev_Configure()->config->user->pixels, $Rev->load->Rev_Configure()->config->user->rank, $Rev->load->Rev_Configure()->config->user->figure, $Rev->load->Rev_Configure()->config->user->gender);	
 					
 					return 1;
 				}

@@ -1,4 +1,4 @@
-<?php
+t<?php
 
 /**
  * Logout user
@@ -56,7 +56,7 @@ class Register_User extends Controller implements iWidget
                 return $this->Render('You are IP banned');
             }
 
-            $this->cUser->mUser->add($_POST['rusername'], $this->load->Model()->emu->register['hash'], $_POST['remail'], $this->load->Rev_Configure()->config->user->motto, $this->load->Rev_Configure()->config->user->credits, $this->load->Rev_Configure()->config->user->pixels, $this->load->Rev_Configure()->config->user->rank, $this->load->Rev_Configure()->config->user->figure, $this->load->Rev_Configure()->config->user->gender); 
+            $this->cUser->mUser->insert($_POST['rusername'], $this->load->Model()->emu->register['hash'], $_POST['remail'], $this->load->Rev_Configure()->config->user->motto, $this->load->Rev_Configure()->config->user->credits, $this->load->Rev_Configure()->config->user->pixels, $this->load->Rev_Configure()->config->user->rank, $this->load->Rev_Configure()->config->user->figure, $this->load->Rev_Configure()->config->user->gender); 
 
             $this->cUser->setSession($_POST['rusername']);
 
