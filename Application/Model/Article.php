@@ -65,7 +65,7 @@ class Model_Article extends Model
 	*/
 	public function getList($id)
 	{
-		$this->driver->query("SELECT {$this->emu->news['title']}, {$this->emu->news['id']} FROM {$this->emu->news['tbl']} WHERE {$this->emu->news['id']} != ? LIMIT 25", array($id));
+		$this->driver->query("SELECT {$this->emu->news['title']}, {$this->emu->news['id']} FROM {$this->emu->news['tbl']} WHERE {$this->emu->news['id']} != ? ORDER BY {$this->emu->news['id']} DESC LIMIT 25", array($id));
 
 		if($this->driver->num_rows() > 0)
 		{
