@@ -40,7 +40,7 @@ class Library_Session
 	
 	public static function InitializeSessionHandling()
 	{
-		if(self::$Rev->load->Rev_Configure()->config->cache->session->type != 'Native')
+		if(self::$Rev->load->Rev_Configure()->config->session->type != 'Native')
 		{
 		
 		   ini_set('session.save_handler', 'user');
